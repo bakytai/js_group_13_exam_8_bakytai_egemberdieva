@@ -21,7 +21,7 @@ export class QuotesOfCategoryComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       const id = params['id'];
       this.categoryName = id;
-      if (id === 'All') {
+      if (id === 'all') {
         this.urlQuotes = 'https://plovo-13-default-rtdb.firebaseio.com/quotes.json';
       } else {
         this.urlQuotes = `https://plovo-13-default-rtdb.firebaseio.com/quotes.json?orderBy="category"&equalTo="${this.categoryName}"`;

@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./add-quotes.component.css']
 })
 export class AddQuotesComponent implements OnInit {
-  categoryName!: string;
+  categoryName = 'famous-people';
   userText!: string;
   authorName!: string;
   idQuotes!: string;
@@ -51,6 +51,7 @@ export class AddQuotesComponent implements OnInit {
       void this.routeService.navigate(['/']);
     } else {
       this.http.post('https://plovo-13-default-rtdb.firebaseio.com/quotes.json', body).subscribe();
+      void this.routeService.navigate(['/']);
     }
   }
 }
