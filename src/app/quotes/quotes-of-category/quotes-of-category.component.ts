@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { QuotesModel } from '../../shared/quotes.model';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
@@ -13,7 +13,8 @@ export class QuotesOfCategoryComponent implements OnInit {
   quotes!: QuotesModel[];
   categoryName!: string;
   urlQuotes!: string;
-  constructor(private route: ActivatedRoute, private http: HttpClient) {
+
+  constructor(private route: ActivatedRoute, private http: HttpClient, private routerService: Router) {
   }
 
   ngOnInit() {
@@ -38,5 +39,11 @@ export class QuotesOfCategoryComponent implements OnInit {
         });
 
     });
+  }
+
+  deleteThisQuotes(idOfQuotes: string) {
+    void this.routerService.navigate(['/']);
+    this.http.delete(`https://plovo-13-default-rtdb.firebaseio.com/quotes/${idOfQuotes}.json`).subscribe();
+    this.http.get<{[id: string]: QuotesModel}>('https://plovo-13-default-rtdb.firebaseio.com/quotes.json').subscribe();
   }
 }

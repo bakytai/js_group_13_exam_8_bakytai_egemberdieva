@@ -2,9 +2,9 @@
   <div class="col-3">
     <h2>Categories: </h2>
     <ul class="list-group">
-      <li *ngFor="let name of category"
+      <li *ngFor="let name of category" class="list-group-item list-group-item-primary"
           routerLinkActive="active"
-          [routerLink]="['/quotes',name]"><a class="list-group-item">{{ name }}</a></li>
+          [routerLink]="['/quotes',name]"><a>{{ name }}</a></li>
     </ul>
   </div>
   <div class="col-5 mt-2">

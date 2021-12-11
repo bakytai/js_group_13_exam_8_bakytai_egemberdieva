@@ -6,10 +6,11 @@ import { QuotesOfCategoryComponent } from './quotes/quotes-of-category/quotes-of
 
 const routes: Routes = [
   {path: '', component: QuotesComponent},
+  {path: 'add', component: AddQuotesComponent},
   {path: 'quotes', component: QuotesComponent, children: [
       {path: ':id', component: QuotesOfCategoryComponent},
     ]},
-  {path: 'add', component: AddQuotesComponent},
+  {path:'edit/:id', component: AddQuotesComponent},
 ];
 
 @NgModule({
