@@ -1,0 +1,31 @@
+<div class="mt-2">
+  <div class="col-6">
+    <h4>Add new Quotes</h4>
+
+    <form (ngSubmit)="createQuote()">
+      <div class="form-group">
+        <label for="author">Author</label>
+        <input type="text" id="author" class="form-control" name="author" [(ngModel)]="author"/>
+      </div>
+      <div class="form-group">
+        <label for="quote">Quote text</label>
+        <textarea name="quote" id="quote" class="form-control" [(ngModel)]="text"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="category">Choose a category: </label>
+        <select  id="category" name="category" [(ngModel)]="category">
+          <option value="star-wars">star-wars</option>
+          <option value="famous-people">famous-people</option>
+          <option value="saying">saying</option>
+          <option value="humour">humor</option>
+          <option value="motivational">motivational</option>
+        </select>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+      >Create
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-around">
+  <div class="col-3">
+    <h2>Categories: </h2>
+    <ul class="list-group">
+      <li *ngFor="let name of category"
+          routerLinkActive="active"
+          [routerLink]="['/quotes',name]"><a class="list-group-item">{{ name }}</a></li>
+    </ul>
+  </div>
+  <div class="col-5 mt-2">
+    <router-outlet></router-outlet>
+  </div>
+</div>
